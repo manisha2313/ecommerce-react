@@ -3,11 +3,11 @@ import axios from "axios";
 const api = axios.create(
     {
         baseURL: "https://dummyjson.com",
-         params: {
-            limit: 0
-        },
+        //  params: {
+        //     limit: 0
+        // },
         headers: {
-            "Content-Type": "application/JSON",
+            "Content-Type": "application/json",
         },
         // withCredentials: true,
         timeout: 10000,
