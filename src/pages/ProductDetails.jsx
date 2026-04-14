@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductsById } from "../api/ProductsApi.js";
+import { getProductById } from "../api/ProductsApi.js";
 import Loader from "../components/Loader";
 import ErrorMessage from "../components/ErrorMessage";
 
@@ -14,7 +14,7 @@ function ProductDetails({addToCart}) {
     async function loadProduct() {
       try {
         setLoading(true);
-        const data = await getProductsById(id);
+        const data = await getProductById(id);
         setProduct(data);
       } catch (err) {
         setError(err.message || "Failed to load product");
