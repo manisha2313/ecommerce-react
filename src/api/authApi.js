@@ -2,12 +2,17 @@
 import api from "../api/axiosApi";
 
 export async function loginUser({ username, password }) {
+  try{
   const response = await api.post("/auth/login", {
       username,
       password,
       expiresInMins: 30,
     })
    return response.data;
+  }  catch (err) {
+    throw new Error(err.response?.data?.message || err.message || "Login failed");
+  }
+
 }
 
 // export async function getCurrentUser(token) {
